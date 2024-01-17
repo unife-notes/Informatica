@@ -2,6 +2,6 @@
 
 **Insegnamento**: Programmazione e laboratorio<br>
 **CFU**: 12<br>
-**Linguagg**i: C<br>
+**Linguagg**i: C, java, python<br>
 **Software**: Visual Studio Code<br>
 **Corso**: Informatica<br>
