@@ -1,7 +1,7 @@
 # Guida
 
-Insegnamento: Programmazione e laboratorio 
-CFU: 12
-Linguaggi: C
-Software: Visual Studio Code
-Corso: Informatica
+Insegnamento: Programmazione e laboratorio<br>
+CFU: 12<br>
+Linguaggi: C<br>
+Software: Visual Studio Code<br>
+Corso: Informatica<br>
