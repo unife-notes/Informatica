@@ -1,1 +1,1 @@
-# Informatica
+# Corso di Informatica
