@@ -12,6 +12,10 @@ public class Ricercatore {
 		partecipazioni = new LinkedList<Partecipazione>();
 	}
 
+	public String getNome() {
+		return nome;
+	}
+
 	public void addPartecipazione(Partecipazione partecipazione) {
 		partecipazioni.add(partecipazione);
 	}

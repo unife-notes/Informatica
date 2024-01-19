@@ -7,6 +7,8 @@ public class Main {
 
 	static List<Progetto> progetti = new LinkedList<Progetto>();
 	static List<Ricercatore> ricercatori = new LinkedList<Ricercatore>();
+	static Map<Ricercatore, Double> ricercatore_maxImpegnoOrario = new HashMap<Ricercatore, Double>();
+	static Map<String, Progetto> nomeRicercatore_progetto = new HashMap<String, Progetto>();
 
 	public static void main(String[] args) {
 		
@@ -27,6 +29,8 @@ public class Main {
 		int codiceProgetto = 0;
 		double impegnoOrario = 0.0d;
 		Ricercatore ricercatore = null;
+		String cognome = null;
+		double max = 0.0d;
 
 
 		try {
@@ -77,6 +81,7 @@ public class Main {
 
 				ricercatore = new Ricercatore(nomeRicercatore);
 				ricercatori.add(ricercatore);
+				max = 0.0d;
 
 				while (line != null && !line.equals("")) {
 					tokenizer = new StringTokenizer(line);
@@ -84,8 +89,18 @@ public class Main {
 					impegnoOrario = Double.parseDouble(tokenizer.nextToken());
 					line = br.readLine();
 
+					if (impegnoOrario > max){
+						max = impegnoOrario;
+					}
+
 					ricercatore.addPartecipazione(new Partecipazione(codiceProgetto, impegnoOrario));
+					for (Progetto p : progetti) {
+						if (codiceProgetto == p.getCodice()) {
+							nomeRicercatore_progetto.put(nomeRicercatore, p);
+						}
+					}
 				}
+				ricercatore_maxImpegnoOrario.put(ricercatore, max);
 				
 				line = br.readLine();
 			}
@@ -102,6 +117,23 @@ public class Main {
 		System.out.println("\n");
 		for (Ricercatore r : ricercatori) {
 			System.out.println(r);
+		}
+
+		System.out.println("\nInserisci il cognome:");
+		
+		try {
+			br = new BufferedReader(new InputStreamReader(System.in));
+			cognome = br.readLine();
+
+			for (Ricercatore r : ricercatori){
+				if (r.getNome().contains(cognome)) {
+					System.out.print(r.getNome() + " " + ricercatore_maxImpegnoOrario.get(r) + " ");
+					System.out.println(nomeRicercatore_progetto.get(r.getNome()).getTitolo());
+				}
+			}
+		}
+		catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 }

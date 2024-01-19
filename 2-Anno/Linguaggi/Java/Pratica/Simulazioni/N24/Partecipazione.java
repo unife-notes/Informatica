@@ -14,7 +14,11 @@ public class Partecipazione {
 		return impegnoOrario;
 	}
 
+	public int getCodiceProgetto() {
+		return codiceProgetto;
+	}
+
 	public String toString() {
-		return "(" + codiceProgetto + "\t" + impegnoOrario + ")";
+		return "(" + codiceProgetto + ", " + impegnoOrario + ")";
 	}
 }

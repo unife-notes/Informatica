@@ -18,6 +18,15 @@ public class Progetto {
 		this.importoTot = importoTot;
 	}
 
+	public int getCodice() {
+		return codice;
+	}
+
+	public String getTitolo() {
+		return titolo;
+	}
+
+
 	public double getImportoTot(){
 		return importoTot;
 	}
